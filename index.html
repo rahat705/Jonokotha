@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#087653">
+<title>জনকথা — নাগরিক অভিযোগ</title>
+<style>
+:root{--g:#087653;--g2:#0d9369;--dark:#12352b;--ink:#182b25;--muted:#687a72;--bg:#f4f8f6;--line:#e0e9e4;--white:#fff;--orange:#f0a33b;--red:#c94c4c;--blue:#477bd1}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans Bengali","Nirmala UI",sans-serif;line-height:1.55}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0;font-weight:750;transition:.18s}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #f0c65c;outline-offset:2px}
+.nav{height:68px;padding:0 max(20px,calc((100% - 1180px)/2));display:flex;align-items:center;justify-content:space-between;background:#fff;border-bottom:1px solid var(--line);gap:12px}.brand{font-size:1.35rem;font-weight:900;color:var(--g);letter-spacing:-.6px}.brand span{color:#f0a33b}.nav-right{display:flex;align-items:center;gap:10px}.pill{font-size:.78rem;padding:5px 10px;border-radius:99px;background:#e7f6ee;color:#126345;font-weight:800}.btn{border-radius:11px;padding:11px 15px;display:inline-flex;align-items:center;justify-content:center;gap:7px}.btn-main{background:var(--g);color:#fff;box-shadow:0 5px 14px #08765325}.btn-main:hover{background:#065b40;transform:translateY(-1px)}.btn-soft{background:#e7f5ee;color:var(--g)}.btn-soft:hover{background:#d8eee3}.hero{background:radial-gradient(circle at 85% 20%,#ffffff18 0 2px,transparent 3px),linear-gradient(120deg,#075d43,#0d9369);color:white;padding:45px 20px 70px}.hero-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:1.35fr .65fr;gap:35px;align-items:center}.hero-tag{display:inline-flex;gap:7px;align-items:center;border:1px solid #ffffff52;background:#ffffff12;padding:6px 12px;border-radius:99px;font-size:.85rem}.hero h1{font-size:clamp(2rem,4.4vw,3.55rem);line-height:1.16;letter-spacing:-1px;margin:16px 0 12px}.hero p{color:#e1f6eb;max-width:640px;font-size:1.05rem;margin:0 0 23px}.hero-actions{display:flex;gap:10px;flex-wrap:wrap}.hero .btn-main{background:#fff;color:var(--g);box-shadow:none}.hero .btn-soft{background:#ffffff18;color:white;border:1px solid #ffffff45}.hero-card{background:#ffffff12;border:1px solid #ffffff35;border-radius:20px;padding:21px}.hero-card .big{font-size:2rem;font-weight:900}.hero-card p{font-size:.9rem;margin:2px 0 14px}.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}.stat{background:#ffffff12;border-radius:12px;padding:13px}.stat strong{display:block;font-size:1.3rem}.stat span{font-size:.8rem;color:#e1f6eb}
+.wrap{max-width:1180px;margin:-28px auto 0;padding:0 20px 50px;position:relative}.notice{background:#fff6db;color:#674f12;border:1px solid #f0dfa6;border-radius:12px;padding:12px 15px;margin-bottom:20px;font-size:.9rem}.notice strong{color:#513c09}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 15px}.toolbar h2{font-size:1.35rem;margin:0}.toolbar p{margin:2px 0 0;color:var(--muted);font-size:.9rem}.feed-tools{display:flex;gap:8px;flex-wrap:wrap}.select{border:1px solid var(--line);background:white;border-radius:10px;padding:10px 12px;color:var(--ink)}.tabs{display:flex;gap:8px;overflow:auto;padding:2px 0 14px;scrollbar-width:thin}.tab{white-space:nowrap;border:1px solid var(--line);background:#fff;color:#52655c;border-radius:99px;padding:9px 13px;font-size:.88rem}.tab.active,.tab:hover{background:var(--g);color:white;border-color:var(--g)}.layout{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:20px;align-items:start}.feed{display:grid;gap:13px}.report{background:#fff;border:1px solid var(--line);border-radius:17px;padding:18px;box-shadow:0 5px 18px #173b2b07}.report-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:9px}.cat{display:inline-flex;align-items:center;gap:6px;color:var(--g);font-size:.8rem;font-weight:800;background:#eaf7f0;border-radius:8px;padding:5px 8px}.time{font-size:.78rem;color:var(--muted)}.report h3{margin:0 0 7px;font-size:1.12rem;line-height:1.4}.report-desc{margin:0;color:#52645b;font-size:.93rem;white-space:pre-wrap;overflow-wrap:anywhere}.report-meta{display:flex;flex-wrap:wrap;gap:12px;margin:13px 0 12px;color:var(--muted);font-size:.82rem}.report-meta span{display:inline-flex;align-items:center;gap:5px}.report-bottom{border-top:1px solid #edf1ee;padding-top:11px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}.status{font-size:.75rem;font-weight:800;border-radius:99px;padding:5px 9px;background:#fff3df;color:#9a5b08}.report-actions{display:flex;gap:7px}.mini-btn{background:#f2f6f3;color:#52645b;border-radius:9px;padding:7px 10px;font-size:.82rem}.mini-btn:hover{background:#e5efe9}.mini-btn.flag{color:#a73f3f}.empty{background:#fff;border:1px dashed #cbd9d1;border-radius:16px;text-align:center;padding:40px 18px;color:var(--muted)}.side{display:grid;gap:15px}.panel{background:#fff;border:1px solid var(--line);border-radius:17px;padding:20px}.panel h3{margin:0 0 5px;font-size:1.12rem}.muted{color:var(--muted);font-size:.88rem;margin:0 0 15px}.form-field{margin:0 0 14px}.form-field label{display:block;font-size:.88rem;font-weight:750;margin-bottom:6px}.form-field input,.form-field select,.form-field textarea{width:100%;border:1px solid #cfdbd4;border-radius:10px;padding:11px 12px;background:#fff;color:var(--ink)}.form-field textarea{min-height:105px;resize:vertical}.help{font-size:.78rem;color:var(--muted);margin-top:5px}.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.anonymous{display:flex;align-items:flex-start;gap:10px;background:#f1f8f4;border:1px solid #d9ebe0;border-radius:11px;padding:12px;margin:8px 0 14px}.anonymous input{accent-color:var(--g);margin-top:5px}.anonymous strong{display:block;font-size:.9rem}.anonymous small{display:block;color:var(--muted);font-size:.78rem}.full{width:100%}.fineprint{font-size:.78rem;color:var(--muted);margin:12px 0 0}.feedback{display:none;margin-top:12px;padding:10px 12px;border-radius:10px;font-size:.86rem}.feedback.show{display:block;background:#e6f7ed;color:#155d39}.feedback.error{display:block;background:#fff0ee;color:#8a2f26}.category-list{display:grid;gap:7px}.category-row{display:flex;align-items:center;justify-content:space-between;background:#f7faf8;padding:9px 10px;border-radius:9px;font-size:.86rem}.category-row button{background:transparent;color:var(--ink);text-align:left;font-weight:650}.category-row span{font-size:.76rem;color:var(--muted)}.rules{padding-left:19px;margin:8px 0 0;color:var(--muted);font-size:.85rem}.rules li{margin:7px 0}.footer{text-align:center;color:var(--muted);font-size:.82rem;padding:25px 15px 35px}.footer b{color:var(--g)}.modal-bg{display:none;position:fixed;inset:0;background:#10251dcc;z-index:10;padding:20px;align-items:center;justify-content:center}.modal-bg.show{display:flex}.modal{background:white;border-radius:16px;max-width:450px;width:100%;padding:22px}.modal h3{margin-top:0}.modal-actions{display:flex;gap:9px;justify-content:flex-end;margin-top:18px}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.side{grid-template-columns:1fr 1fr}.hero-inner{grid-template-columns:1fr .7fr}}
+@media(max-width:650px){.nav{height:60px;padding:0 15px}.nav-right .pill{display:none}.hero{padding:32px 18px 55px}.hero-inner{grid-template-columns:1fr}.hero-card{display:none}.wrap{padding:0 12px 35px}.layout{grid-template-columns:1fr}.side{grid-template-columns:1fr}.report{padding:15px}.row2{grid-template-columns:1fr;gap:0}.toolbar{align-items:flex-start}.feed-tools{width:100%}.select{flex:1;min-width:0}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="brand">জন<span>কথা</span></div>
+  <div class="nav-right"><span class="pill">নাগরিক কণ্ঠস্বর</span><a href="#submit" class="btn btn-main">＋ অভিযোগ জানান</a></div>
+</nav>
+<section class="hero"><div class="hero-inner">
+  <div><span class="hero-tag">🇧🇩 নাগরিকদের জন্য উন্মুক্ত প্ল্যাটফর্ম</span>
+    <h1>সমস্যা বলুন।<br>পরিবর্তন শুরু হোক।</h1>
+    <p>আপনার এলাকার সমস্যা জানান, অন্যদের রিপোর্ট দেখুন, একই সমস্যায় সমর্থন জানান। চাইলে পরিচয় গোপন রেখেও অভিযোগ প্রকাশ করতে পারেন।</p>
+    <div class="hero-actions"><a class="btn btn-main" href="#submit">✍️ অভিযোগ জমা দিন</a><a class="btn btn-soft" href="#reports">▤ সব রিপোর্ট দেখুন</a></div>
+  </div>
+  <div class="hero-card"><div class="big" id="heroCount">০</div><p>প্রকাশ্য রিপোর্ট</p><div class="hero-stats"><div class="stat"><strong>১১</strong><span>অভিযোগের ধরন</span></div><div class="stat"><strong>২৪/৭</strong><span>অনলাইনে দেখার সুবিধা*</span></div></div><p style="margin:14px 0 0;font-size:.75rem">*ব্যাকএন্ড চালু থাকলে।</p></div>
+</div></section>
+<main class="wrap">
+  <div class="notice"><strong>স্বচ্ছতার নোট:</strong> এটি এখন ডেমো সংস্করণ। নমুনা রিপোর্ট দেখা ও ফর্ম পরীক্ষা করা যাবে; কিন্তু সব ব্যবহারকারীর রিপোর্ট একসঙ্গে শেয়ার করতে নিচের README অনুযায়ী Supabase সংযোগ করতে হবে। এই পেজ এখনো সরকারি সেবা নয়।</div>
+  <section id="reports">
+    <div class="toolbar"><div><h2>নাগরিক রিপোর্ট</h2><p>সমস্যাগুলো দেখুন, খুঁজুন ও বিভাগ অনুযায়ী ফিল্টার করুন।</p></div>
+      <div class="feed-tools"><input class="select" id="search" type="search" placeholder="🔎 রিপোর্ট খুঁজুন…" aria-label="রিপোর্ট খুঁজুন"><select class="select" id="sort" aria-label="রিপোর্ট সাজান"><option value="new">নতুন আগে</option><option value="support">সমর্থন বেশি</option></select></div>
+    </div>
+    <div class="tabs" id="tabs"></div>
+    <div class="layout">
+      <div class="feed" id="feed" aria-live="polite"></div>
+      <aside class="side">
+        <section class="panel" id="submit"><h3>✍️ নতুন অভিযোগ</h3><p class="muted">সংক্ষিপ্ত, নির্দিষ্ট ও তথ্যভিত্তিকভাবে লিখুন।</p>
+          <form id="complaintForm">
+            <div class="form-field"><label for="category">অভিযোগের ধরন *</label><select id="category" required></select></div>
+            <div class="form-field"><label for="title">শিরোনাম *</label><input id="title" maxlength="110" required placeholder="যেমন: রাস্তায় বড় গর্ত"></div>
+            <div class="row2"><div class="form-field"><label for="division">বিভাগ *</label><select id="division" required><option value="">নির্বাচন করুন</option><option>ঢাকা</option><option>চট্টগ্রাম</option><option>রাজশাহী</option><option>খুলনা</option><option>বরিশাল</option><option>সিলেট</option><option>রংপুর</option><option>ময়মনসিংহ</option></select></div><div class="form-field"><label for="district">জেলা / শহর *</label><input id="district" required maxlength="70" placeholder="যেমন: ঢাকা"></div></div>
+            <div class="form-field"><label for="location">এলাকা / সুনির্দিষ্ট স্থান *</label><input id="location" required maxlength="160" placeholder="সড়ক, এলাকা বা পরিচিত স্থান"></div>
+            <div class="form-field"><label for="details">বিস্তারিত বিবরণ * (কমপক্ষে ২০ অক্ষর)</label><textarea id="details" required minlength="20" maxlength="2500" placeholder="কী ঘটেছে, কখন, কারা প্রভাবিত হচ্ছেন?"></textarea></div>
+            <div class="anonymous"><input id="anonymous" type="checkbox" checked><label for="anonymous"><strong>🕶️ বেনামে প্রকাশ করুন</strong><small>আপনার নাম চাওয়া হয় না। রিপোর্টে আপনার পরিচয় দেখানো হবে না।</small></label></div>
+            <div class="form-field" id="nameField" style="display:none"><label for="displayName">প্রদর্শনের নাম (ঐচ্ছিক)</label><input id="displayName" maxlength="40" placeholder="যে নামে দেখাতে চান"></div>
+            <div class="form-field"><label for="incidentDate">ঘটনার তারিখ (ঐচ্ছিক)</label><input id="incidentDate" type="date"></div>
+            <label class="check" style="display:flex;gap:9px;align-items:flex-start;font-size:.8rem;color:var(--muted);margin:8px 0 14px"><input id="agree" type="checkbox" required style="margin-top:4px;accent-color:var(--g)"><span>আমি নিশ্চিত করছি যে রিপোর্টটি সৎ উদ্দেশ্যে করা এবং এতে ব্যক্তিগত তথ্য, হুমকি বা অযাচাইকৃত ব্যক্তিগত অভিযোগ নেই। *</span></label>
+            <button class="btn btn-main full" type="submit">🚀 রিপোর্ট প্রকাশ করুন</button>
+            <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+            <p class="fineprint">প্রকাশের পর রিপোর্টটি সর্বসাধারণের জন্য দৃশ্যমান হতে পারে। NID, ফোন নম্বর, ঠিকানা, পাসওয়ার্ড বা অন্যের ব্যক্তিগত তথ্য দেবেন না।</p>
+          </form>
+        </section>
+        <section class="panel"><h3>📂 অভিযোগের ধরন</h3><p class="muted">যে বিষয়ে সমস্যা, সেই বিভাগ বেছে নিন।</p><div id="categoryList" class="category-list"></div></section>
+        <section class="panel"><h3>🛡️ দায়িত্বশীলভাবে রিপোর্ট করুন</h3><ul class="rules"><li>তথ্যভিত্তিক ও ভদ্র ভাষা ব্যবহার করুন।</li><li>ব্যক্তির পরিচয়, ফোন বা সংবেদনশীল তথ্য প্রকাশ করবেন না।</li><li>জরুরি বিপদে এই ওয়েবসাইটের ওপর নির্ভর করবেন না।</li><li>প্রকাশ্য রিপোর্টে মন্তব্য করার আগে তথ্য যাচাই করুন।</li></ul></section>
+      </aside>
+    </div>
+  </section>
+</main>
+<footer class="footer">জনকথা — নাগরিকদের কথা বলার একটি স্বাধীন উদ্যোগের প্রোটোটাইপ।<br><b>স্বচ্ছতা • দায়িত্ব • নাগরিক অংশগ্রহণ</b></footer>
+<div class="modal-bg" id="flagModal" role="dialog" aria-modal="true" aria-labelledby="flagTitle"><div class="modal"><h3 id="flagTitle">রিপোর্টটি চিহ্নিত করবেন?</h3><p class="muted">ব্যক্তিগত তথ্য, হুমকি বা স্প্যাম থাকলে রিপোর্টটি চিহ্নিত করুন। এই ডেমোতে চিহ্নিতকরণ শুধু আপনার ব্রাউজারে কাজ করে।</p><div class="modal-actions"><button class="btn btn-soft" id="cancelFlag">বাতিল</button><button class="btn btn-main" id="confirmFlag">⚑ চিহ্নিত করুন</button></div></div></div>
+<script>
+// Add your Supabase Project URL and anon/public key here to enable shared reports.
+const SUPABASE_URL = 'https://YOUR-PROJECT.supabase.co';
+const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_PUBLIC_KEY';
+const backendConfigured = !SUPABASE_URL.includes('YOUR-PROJECT') && !SUPABASE_ANON_KEY.includes('YOUR_SUPABASE');
+const CATEGORIES = [
+ {name:'সব রিপোর্ট',icon:'▦',value:'all'},
+ {name:'রাস্তা ও পরিবহন',icon:'🛣️'}, {name:'বিদ্যুৎ ও জ্বালানি',icon:'⚡'},
+ {name:'পানি ও পয়ঃনিষ্কাশন',icon:'💧'}, {name:'স্বাস্থ্যসেবা',icon:'🏥'},
+ {name:'শিক্ষা',icon:'🎓'}, {name:'নাগরিক সেবা',icon:'🏛️'},
+ {name:'দুর্নীতি ও অনিয়ম',icon:'⚖️'}, {name:'পরিবেশ ও বর্জ্য',icon:'🌱'},
+ {name:'ভোক্তা অধিকার',icon:'🛒'}, {name:'নিরাপত্তা ও হয়রানি',icon:'🛡️'},
+ {name:'অন্যান্য',icon:'📌'}
+];
+const bn = n => new Intl.NumberFormat('bn-BD').format(n);
+const samples = [
+ {id:'s1',category:'রাস্তা ও পরিবহন',title:'বৃষ্টির পর সড়কে বড় গর্ত তৈরি হয়েছে',division:'ঢাকা',district:'মিরপুর',location:'মিরপুর ১০ থেকে ১১ সংযোগ সড়ক',details:'বৃষ্টির পর সড়কের মাঝখানে বড় গর্ত হয়েছে। মোটরসাইকেল ও রিকশা চলাচলে ঝুঁকি তৈরি হচ্ছে। দ্রুত পরিদর্শন ও মেরামতের অনুরোধ করছি।',anonymous:true,author:'বেনামি নাগরিক',date:'2026-10-17',created:'2026-10-18T08:30:00Z',support:24,status:'পর্যালোচনার অপেক্ষায়',sample:true},
+ {id:'s2',category:'বিদ্যুৎ ও জ্বালানি',title:'এলাকায় ঘন ঘন বিদ্যুৎ বিভ্রাট',division:'চট্টগ্রাম',district:'হালিশহর',location:'হালিশহর বি-ব্লক',details:'গত কয়েক দিনে একাধিকবার দীর্ঘ সময় বিদ্যুৎ থাকছে না। বিদ্যুৎ সরবরাহের অবস্থা ও সম্ভাব্য সমাধান সম্পর্কে জানালে উপকৃত হব।',anonymous:false,author:'সচেতন নাগরিক',date:'2026-10-16',created:'2026-10-17T10:10:00Z',support:17,status:'পর্যালোচনার অপেক্ষায়',sample:true},
+ {id:'s3',category:'পানি ও পয়ঃনিষ্কাশন',title:'ড্রেন বন্ধ থাকায় জলাবদ্ধতা',division:'ঢাকা',district:'যাত্রাবাড়ী',location:'স্থানীয় বাজারের পাশের সড়ক',details:'ড্রেনের পানি ঠিকমতো নামছে না এবং বৃষ্টির পর হাঁটার রাস্তা ডুবে যায়। ড্রেন পরিষ্কার ও সমস্যার স্থায়ী সমাধান প্রয়োজন।',anonymous:true,author:'বেনামি নাগরিক',date:'2026-10-15',created:'2026-10-16T05:45:00Z',support:31,status:'পর্যালোচনার অপেক্ষায়',sample:true},
+ {id:'s4',category:'পরিবেশ ও বর্জ্য',title:'নির্দিষ্ট স্থানে নিয়মিত ময়লা জমছে',division:'খুলনা',district:'খুলনা সদর',location:'আবাসিক এলাকার প্রবেশপথ',details:'আবাসিক এলাকার প্রবেশপথে নিয়মিত বর্জ্য ফেলা হচ্ছে। দুর্গন্ধ ও স্বাস্থ্যঝুঁকি তৈরি হচ্ছে। নিয়মিত বর্জ্য সংগ্রহের ব্যবস্থা করার অনুরোধ করছি।',anonymous:true,author:'বেনামি নাগরিক',date:'2026-10-14',created:'2026-10-15T12:00:00Z',support:12,status:'পর্যালোচনার অপেক্ষায়',sample:true}
+];
+let reports = [...samples], activeCategory='all', pendingFlag=null;
+function backendMessage(){
+ const n=document.querySelector('.notice');
+ if(backendConfigured){n.innerHTML='<strong>লাইভ ডেটাবেস:</strong> সংযুক্ত থাকলে নতুন রিপোর্ট ও প্রকাশিত রিপোর্ট সবার জন্য শেয়ার হবে। বেনামি রিপোর্টে নাম দেখানো হয় না; তবে প্রযুক্তিগত লগ থেকে সম্পূর্ণ anonymity নিশ্চিত করা যায় না।';}
+}
+async function loadSharedReports(){
+ if(!backendConfigured) return;
+ try{
+  const res=await fetch(`${SUPABASE_URL}/rest/v1/reports?select=*&order=created_at.desc`,{headers:{apikey:SUPABASE_ANON_KEY,Authorization:`Bearer ${SUPABASE_ANON_KEY}`}});
+  if(!res.ok) throw new Error('Could not load reports');
+  const rows=await res.json();
+  reports=rows.map(r=>({id:r.id,category:r.category,title:r.title,division:r.division,district:r.district,location:r.location,details:r.details,anonymous:r.anonymous,author:r.anonymous?'বেনামি নাগরিক':(r.display_name||'নাগরিক'),date:r.incident_date,created:r.created_at,support:r.support_count||0,status:r.status||'নতুন রিপোর্ট',sample:false}));
+  // Do not mix fictional demo samples into a live public feed.
+  render();renderCategoryList();backendMessage();
+ }catch(err){
+  const fb=document.getElementById('feedback');fb.className='feedback error';fb.textContent='লাইভ রিপোর্ট লোড করা যায়নি। Supabase URL/key, schema ও নেটওয়ার্ক সেটিংস যাচাই করুন।';
+ }
+}
+const tabs=document.getElementById('tabs'), feed=document.getElementById('feed');
+const catSelect=document.getElementById('category');
+CATEGORIES.filter(c=>c.value!=='all').forEach(c=>{let o=document.createElement('option');o.value=c.name;o.textContent=c.icon+' '+c.name;catSelect.appendChild(o)});
+function buildTabs(){
+ tabs.innerHTML='';
+ CATEGORIES.forEach(c=>{let b=document.createElement('button');b.className='tab'+(activeCategory===(c.value||c.name)?' active':'');b.textContent=c.icon+' '+c.name;b.onclick=()=>{activeCategory=c.value||c.name;buildTabs();render()};tabs.appendChild(b)});
+}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function render(){
+ const q=document.getElementById('search').value.trim().toLocaleLowerCase('bn-BD');
+ let list=reports.filter(r=>(activeCategory==='all'||r.category===activeCategory)&&(!q||[r.title,r.details,r.district,r.location,r.category].join(' ').toLocaleLowerCase('bn-BD').includes(q)));
+ if(document.getElementById('sort').value==='support')list.sort((a,b)=>b.support-a.support);else list.sort((a,b)=>new Date(b.created)-new Date(a.created));
+ document.getElementById('heroCount').textContent=bn(reports.length);
+ if(!list.length){feed.innerHTML='<div class="empty"><div style="font-size:2rem">🔎</div><strong>কোনো রিপোর্ট পাওয়া যায়নি</strong><p>অন্য বিভাগ বা শব্দ দিয়ে খুঁজে দেখুন।</p></div>';return}
+ feed.innerHTML=list.map(r=>{
+ const c=CATEGORIES.find(x=>x.name===r.category)||{icon:'📌'};
+ const date=new Date(r.created).toLocaleDateString('bn-BD',{day:'numeric',month:'short',year:'numeric'});
+ return `<article class="report"><div class="report-top"><span class="cat">${c.icon} ${esc(r.category)}</span><span class="time">${date}${r.sample?' · নমুনা':''}</span></div><h3>${esc(r.title)}</h3><p class="report-desc">${esc(r.details)}</p><div class="report-meta"><span>📍 ${esc(r.district)}, ${esc(r.division)}</span><span>⌖ ${esc(r.location)}</span><span>👤 ${esc(r.anonymous?'বেনামি নাগরিক':r.author||'নাগরিক')}</span></div><div class="report-bottom"><span class="status">${esc(r.status||'নতুন রিপোর্ট')}</span><div class="report-actions"><button class="mini-btn" data-support="${esc(r.id)}">🤝 সমর্থন ${bn(r.support||0)}</button><button class="mini-btn flag" data-flag="${esc(r.id)}">⚑ চিহ্নিত</button></div></div></article>`;
+ }).join('');
+}
+function renderCategoryList(){
+ const el=document.getElementById('categoryList');el.innerHTML='';
+ CATEGORIES.filter(c=>c.value!=='all').forEach(c=>{const count=reports.filter(r=>r.category===c.name).length;const row=document.createElement('div');row.className='category-row';row.innerHTML=`<button type="button">${c.icon} ${esc(c.name)}</button><span>${bn(count)} রিপোর্ট</span>`;row.querySelector('button').onclick=()=>{activeCategory=c.name;buildTabs();render();document.getElementById('reports').scrollIntoView({behavior:'smooth'})};el.appendChild(row)});
+}
+document.getElementById('search').addEventListener('input',render);document.getElementById('sort').addEventListener('change',render);
+feed.addEventListener('click',e=>{
+ const sup=e.target.closest('[data-support]');if(sup){const r=reports.find(x=>x.id===sup.dataset.support);if(r){r.support=(r.support||0)+1;render();}return}
+ const flag=e.target.closest('[data-flag]');if(flag){pendingFlag=flag.dataset.flag;document.getElementById('flagModal').classList.add('show')}
+});
+document.getElementById('anonymous').addEventListener('change',e=>document.getElementById('nameField').style.display=e.target.checked?'none':'block');
+document.getElementById('cancelFlag').onclick=()=>document.getElementById('flagModal').classList.remove('show');
+document.getElementById('confirmFlag').onclick=()=>{document.getElementById('flagModal').classList.remove('show');const fb=document.getElementById('feedback');fb.className='feedback show';fb.textContent='ধন্যবাদ। ডেমোতে রিপোর্ট চিহ্নিত করার তথ্য সার্ভারে পাঠানো হয়নি।';};
+document.getElementById('complaintForm').addEventListener('submit',async e=>{
+ e.preventDefault();const form=e.currentTarget;if(!form.reportValidity())return;
+ const anonymous=document.getElementById('anonymous').checked;
+ const payload={category:catSelect.value,title:document.getElementById('title').value.trim(),division:document.getElementById('division').value,district:document.getElementById('district').value.trim(),location:document.getElementById('location').value.trim(),details:document.getElementById('details').value.trim(),anonymous,display_name:anonymous?null:(document.getElementById('displayName').value.trim()||'নাগরিক'),incident_date:document.getElementById('incidentDate').value||null};
+ const fb=document.getElementById('feedback');fb.className='feedback';fb.textContent='';
+ if(backendConfigured){
+  try{
+   const res=await fetch(`${SUPABASE_URL}/rest/v1/reports`,{method:'POST',headers:{apikey:SUPABASE_ANON_KEY,Authorization:`Bearer ${SUPABASE_ANON_KEY}`,'Content-Type':'application/json',Prefer:'return=representation'},body:JSON.stringify(payload)});
+   if(!res.ok) throw new Error('Submit failed');
+   const rows=await res.json();const r=rows[0];
+   reports.unshift({id:r.id,category:r.category,title:r.title,division:r.division,district:r.district,location:r.location,details:r.details,anonymous:r.anonymous,author:r.anonymous?'বেনামি নাগরিক':(r.display_name||'নাগরিক'),date:r.incident_date,created:r.created_at,support:r.support_count||0,status:r.status||'নতুন রিপোর্ট',sample:false});
+   fb.className='feedback show';fb.textContent='আপনার রিপোর্ট প্রকাশিত হয়েছে এবং সংযুক্ত ডেটাবেসের মাধ্যমে অন্য দর্শকেরাও দেখতে পারবেন।';
+  }catch(err){fb.className='feedback error';fb.textContent='রিপোর্ট পাঠানো যায়নি। Supabase URL/key, SQL schema এবং Row Level Security policy যাচাই করুন।';return;}
+ }else{
+  const r={id:'local-'+Date.now(),...payload,author:anonymous?'বেনামি নাগরিক':payload.display_name,created:new Date().toISOString(),support:0,status:'নতুন রিপোর্ট',sample:false};
+  reports.unshift(r);
+  fb.className='feedback show';fb.textContent='ডেমো রিপোর্টটি এই ব্রাউজারে যোগ হয়েছে। সবার সঙ্গে শেয়ার করতে README অনুযায়ী Supabase URL ও anon key বসান।';
+ }
+ activeCategory='all';buildTabs();render();renderCategoryList();
+ form.reset();document.getElementById('anonymous').checked=true;document.getElementById('nameField').style.display='none';
+});
+buildTabs();render();renderCategoryList();loadSharedReports();
+</script>
+</body></html>
