@@ -27,7 +27,7 @@
   <div class="hero-card"><div class="big" id="heroCount">০</div><p>প্রকাশ্য রিপোর্ট</p><div class="hero-stats"><div class="stat"><strong>১১</strong><span>অভিযোগের ধরন</span></div><div class="stat"><strong>২৪/৭</strong><span>অনলাইনে দেখার সুবিধা*</span></div></div><p style="margin:14px 0 0;font-size:.75rem">*ব্যাকএন্ড চালু থাকলে।</p></div>
 </div></section>
 <main class="wrap">
-  <div class="notice"><strong>স্বচ্ছতার নোট:</strong> এটি এখন ডেমো সংস্করণ। নমুনা রিপোর্ট দেখা ও ফর্ম পরীক্ষা করা যাবে; কিন্তু সব ব্যবহারকারীর রিপোর্ট একসঙ্গে শেয়ার করতে নিচের README অনুযায়ী Supabase সংযোগ করতে হবে। এই পেজ এখনো সরকারি সেবা নয়।</div>
+  <div class="notice"><strong>স্বচ্ছতার নোট:</strong> এটি একটি স্বাধীন নাগরিক রিপোর্টিং প্রোটোটাইপ, সরকারি সেবা নয়। Supabase সংযোগ সফল হলে বাস্তব রিপোর্ট সবার জন্য শেয়ার হবে। সমর্থন গণনা ও রিপোর্ট চিহ্নিত করার সুবিধা এখনো শুধু বর্তমান ব্রাউজারে কাজ করে।</div>
   <section id="reports">
     <div class="toolbar"><div><h2>নাগরিক রিপোর্ট</h2><p>সমস্যাগুলো দেখুন, খুঁজুন ও বিভাগ অনুযায়ী ফিল্টার করুন।</p></div>
       <div class="feed-tools"><input class="select" id="search" type="search" placeholder="🔎 রিপোর্ট খুঁজুন…" aria-label="রিপোর্ট খুঁজুন"><select class="select" id="sort" aria-label="রিপোর্ট সাজান"><option value="new">নতুন আগে</option><option value="support">সমর্থন বেশি</option></select></div>
@@ -61,9 +61,9 @@
 <footer class="footer">জনকথা — নাগরিকদের কথা বলার একটি স্বাধীন উদ্যোগের প্রোটোটাইপ।<br><b>স্বচ্ছতা • দায়িত্ব • নাগরিক অংশগ্রহণ</b></footer>
 <div class="modal-bg" id="flagModal" role="dialog" aria-modal="true" aria-labelledby="flagTitle"><div class="modal"><h3 id="flagTitle">রিপোর্টটি চিহ্নিত করবেন?</h3><p class="muted">ব্যক্তিগত তথ্য, হুমকি বা স্প্যাম থাকলে রিপোর্টটি চিহ্নিত করুন। এই ডেমোতে চিহ্নিতকরণ শুধু আপনার ব্রাউজারে কাজ করে।</p><div class="modal-actions"><button class="btn btn-soft" id="cancelFlag">বাতিল</button><button class="btn btn-main" id="confirmFlag">⚑ চিহ্নিত করুন</button></div></div></div>
 <script>
-// Add your Supabase Project URL and anon/public key here to enable shared reports.
-const SUPABASE_URL = 'https://YOUR-PROJECT.supabase.co';
-const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_PUBLIC_KEY';
+// Supabase setup: replace the placeholder below with your Supabase Publishable key (sb_publishable_...). Never use a Secret/service_role key here.
+const SUPABASE_URL = 'https://ybwbpitefzimjyisgpqf.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_pGvvup2G213qoLNfuKzfoQ_bRaAwPTn';
 const backendConfigured = !SUPABASE_URL.includes('YOUR-PROJECT') && !SUPABASE_ANON_KEY.includes('YOUR_SUPABASE');
 const CATEGORIES = [
  {name:'সব রিপোর্ট',icon:'▦',value:'all'},
