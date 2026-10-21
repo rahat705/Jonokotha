@@ -340,7 +340,8 @@ document.getElementById('cancelFlag').onclick=()=>document.getElementById('flagM
 document.getElementById('confirmFlag').onclick=()=>{document.getElementById('flagModal').classList.remove('show');const fb=document.getElementById('feedback');fb.className='feedback show';fb.textContent='ধন্যবাদ। ডেমোতে রিপোর্ট চিহ্নিত করার তথ্য সার্ভারে পাঠানো হয়নি।';};
 document.getElementById('complaintForm').addEventListener('submit',async e=>{
  e.preventDefault();const form=e.currentTarget;if(!form.reportValidity())return;
- if(!authSession?.access_token){authMessage('রিপোর্ট জমা দিতে আগে ইমেইল দিয়ে অ্যাকাউন্ট তৈরি বা লগইন করুন।',true);document.getElementById('accountPanel').scrollIntoView({behavior:'smooth'});return;}\n const anonymous=document.getElementById('anonymous').checked;
+ if(!authSession?.access_token){authMessage('রিপোর্ট জমা দিতে আগে ইমেইল দিয়ে অ্যাকাউন্ট তৈরি বা লগইন করুন।',true);document.getElementById('accountPanel').scrollIntoView({behavior:'smooth'});return;}
+ const anonymous=document.getElementById('anonymous').checked;
  const payload={category:catSelect.value,title:document.getElementById('title').value.trim(),division:document.getElementById('division').value,district:document.getElementById('district').value.trim(),location:document.getElementById('location').value.trim(),details:document.getElementById('details').value.trim(),anonymous,display_name:anonymous?null:(currentNickname()||'সচেতন নাগরিক'),incident_date:document.getElementById('incidentDate').value||null,media_urls:[],user_id:authSession.user.id};
  const fb=document.getElementById('feedback');fb.className='feedback';fb.textContent='';
  if(backendConfigured){
