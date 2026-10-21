@@ -109,10 +109,34 @@ function refreshAuthUI(){
   }
 }
 async function authRequest(path,body){
-  const res=await fetch(`${SUPABASE_URL}/auth/v1/${path}`,{method:'POST',headers:{apikey:SUPABASE_ANON_KEY,'Content-Type':'application/json'},body:JSON.stringify(body)});
+  // Supabase GoTrue expects the confirmation redirect as the signup endpoint's redirect_to query parameter.
+  const redirectUrl = 'https://rahat705.github.io/Jonokotha/';
+  const endpoint = `${SUPABASE_URL}/auth/v1/${path}${path === 'signup' ? `?redirect_to=${encodeURIComponent(redirectUrl)}` : ''}`;
+  const res=await fetch(endpoint,{method:'POST',headers:{apikey:SUPABASE_ANON_KEY,'Content-Type':'application/json'},body:JSON.stringify(body)});
   const data=await res.json().catch(()=>({}));
-  if(!res.ok)throw new Error(data.msg||data.message||data.error_description||data.error||'অ্যাকাউন্ট অনুরোধ সফল হয়নি।');
+  if(!res.ok)throw new Error(data.msg||data.message||data.error_description||data.error||data.code||'অ্যাকাউন্ট অনুরোধ সফল হয়নি।');
   return data;
+}
+async function handleAuthCallback(){
+  // Supabase email confirmation may return access tokens in the URL hash.
+  if(!location.hash || !location.hash.includes('access_token=')) return;
+  const params = new URLSearchParams(location.hash.slice(1));
+  const access_token = params.get('access_token');
+  const refresh_token = params.get('refresh_token');
+  if(!access_token) return;
+  try {
+    const res = await fetch(`${SUPABASE_URL}/auth/v1/user`, {headers:{apikey:SUPABASE_ANON_KEY,Authorization:`Bearer ${access_token}`}});
+    const user = await res.json().catch(()=>({}));
+    if(!res.ok) throw new Error(user.msg||user.message||'ইমেইল যাচাই হয়েছে, কিন্তু সেশন লোড করা যায়নি। লগইন করুন।');
+    authSession = {access_token, refresh_token, token_type:params.get('token_type')||'bearer', expires_in:Number(params.get('expires_in')||3600), user};
+    localStorage.setItem('jonokotha_auth_session', JSON.stringify(authSession));
+    history.replaceState(null, document.title, location.pathname + location.search);
+    refreshAuthUI();
+    authMessage('ইমেইল যাচাই সফল হয়েছে। আপনি এখন লগইন করেছেন।');
+  } catch (err) {
+    history.replaceState(null, document.title, location.pathname + location.search);
+    authMessage((err && err.message) || 'ইমেইল যাচাই হয়েছে। অনুগ্রহ করে লগইন করুন।', true);
+  }
 }
 async function signUp(){
   if(!backendConfigured){authMessage('আগে index.html-এ Supabase Publishable key বসাতে হবে।',true);return;}
@@ -364,6 +388,6 @@ document.getElementById('complaintForm').addEventListener('submit',async e=>{
  activeCategory='all';buildTabs();render();renderCategoryList();
  form.reset();document.getElementById('mediaPreview').innerHTML='';document.getElementById('anonymous').checked=true;document.getElementById('nameField').style.display='none';
 });
-buildTabs();render();renderCategoryList();refreshAuthUI();loadSharedReports();
+buildTabs();render();renderCategoryList();refreshAuthUI();handleAuthCallback();loadSharedReports();
 </script>
 </body></html>
